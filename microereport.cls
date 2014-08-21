@@ -70,20 +70,8 @@
 \RequirePackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \RequirePackage[onehalfspacing]{setspace}
 \RequirePackage{fancyhdr}
-
 \RequirePackage[font=small, labelfont={bf,small}]{caption}
 \RequirePackage[hidelinks,hyperfootnotes=false]{hyperref}
-
-% Set up headers
-\fancypagestyle{plain}{
-	\fancyhf{}
-	\renewcommand{\headrulewidth}{0pt}
-}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\@classname}
-\fancyhead[R]{\@pagemark{} \thepage}
-\fancyfoot[C]{\@institute}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% Custom Commands %%%%%
@@ -95,3 +83,19 @@
 \newcommand{\pagemark}[1]{\renewcommand{\@pagemark}{#1}}
 \newcommand{\@institute}{Rochester Institute of Technology}
 \newcommand{\institute}[1]{\renewcommand{\@institute}{#1}}
+
+%%%%% Finishing Touches %%%%%
+% Set up headers
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\@classname}
+\fancyhead[R]{\@pagemark{} \thepage}
+\fancyfoot[C]{\@institute}
+\fancyfoot[L]{\@date}
+
+% IEEE bibliography style
+\bibliographystyle{IEEEtran}
