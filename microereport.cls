@@ -29,14 +29,6 @@
 	\PassOptionsToClass{\CurrentOption}{report}
 }
 
-% Title page options
-\DeclareOption{titlepage}{
-	\PassOptionsToClass{\CurrentOption}{report}
-}
-\DeclareOption{notitlepage}{
-	\PassOptionsToClass{\CurrentOption}{report}
-}
-
 % Chapter odd or any page start
 \DeclareOption{openright}{
 	\PassOptionsToClass{\CurrentOption}{report}
@@ -83,6 +75,41 @@
 \newcommand{\pagemark}[1]{\renewcommand{\@pagemark}{#1}}
 \newcommand{\@institute}{Rochester Institute of Technology}
 \newcommand{\institute}[1]{\renewcommand{\@institute}{#1}}
+
+% Title page
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	\setcounter{page}{0}
+	\begin{center}
+		\
+		\vfill
+		{\LARGE\@title}\vspace{2ex}
+		
+		{\Large\textsc\@author}
+		
+		\vfill\vfill
+		
+		\begin{center}
+		{\large
+		\begin{tabular}{rl}
+			Lab Group:
+			\@grouptable
+		\end{tabular}
+		}
+		\end{center}
+		
+		\vfill\vfill
+		{\large\@date}
+	\end{center}
+	\clearpage
+}
+
+% Lab Partners
+\newcommand{\@grouptable}{}
+\newcommand{\groupmember}[1]{\g@addto@macro\@grouptable{
+	\\
+	& #1
+}}
 
 %%%%% Finishing Touches %%%%%
 % Set up headers
