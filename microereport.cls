@@ -92,7 +92,7 @@
 		\begin{center}
 		{\large
 		\begin{tabular}{rl}
-			Lab Group:
+			\@grouptablestart
 			\@grouptable
 		\end{tabular}
 		}
@@ -105,8 +105,11 @@
 }
 
 % Lab Partners
+\newcommand{\@grouptablestart}{}
 \newcommand{\@grouptable}{}
-\newcommand{\groupmember}[1]{\g@addto@macro\@grouptable{
+\newcommand{\groupmember}[1]{
+	\renewcommand{\@grouptablestart}{Lab Group:}
+	\g@addto@macro\@grouptable{
 	\\
 	& #1
 }}
